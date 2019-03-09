@@ -1,0 +1,401 @@
+
+
+
+
+
+
+
+<!doctype html>
+<html lang>
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta http-equiv="Content-Type" content="text/html" charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  
+  
+  
+  
+    <meta name="description" content="##Git����ʹ��
+###Git�ر��� 
++ git init
+   �û���ʼ��git�ֿ⣨������Ӱ���ļ� .git��
+
++ �û���Ϣ���ã�name&amp;email���ǵ��ڡ� �����ӣ�
+  -  �����û��� ��git config --global uer.name &quot;wangliang19960516&quot; 
+ ...">
+  
+  <title> [ 王亮 ]</title>
+  
+  
+    <link rel="shortcut icon" href="/hollow.ico">
+  
+  
+  <link rel="stylesheet" href="/css/random.css">
+<link rel="stylesheet" href="/css/vegas.min.css">
+<link rel="stylesheet" href="/css/highlight-railscasts.css">
+<link rel="stylesheet" href="/css/jquery.fancybox.css">
+<link rel="stylesheet" href="/css/iconfont/iconfont.css">
+<link rel="stylesheet" href="/css/jquery.fancybox-thumbs.css">
+<link rel="stylesheet" href="/css/plyr.css">
+  
+</head>
+
+<body>
+<div class="side-navigate hide-area">
+  
+  
+    <div class="item next">
+      <a href="/2019/03/08/我的第一篇文章/">
+        <div class="item-icon"></div>
+      </a>
+      <div class="item-title">
+        第一篇文章
+      </div>
+    </div>
+  
+</div>
+<div id="outer-container" class="hide-area">
+<div id="container">
+  <div id="menu-outer" class="slide-down">
+    <div id="menu-inner">
+      <div id="brand">
+        
+        <a onclick="openUserCard()">
+          <img id="avatar" src="http://m.qpic.cn/psb?/V102QpNv3FCx09/Sprv95uyhT*mdo3kY*ATmS8qentTqrcRB3vR2PoOtpk!/b/dLsAAAAAAAAA&bo=awQ4BAAAAAADB3E!&rf=viewer_4">
+          <div id="homelink">王亮</div>
+        </a>
+      </div>
+      <div id="menu-list">
+        <ul>
+        
+        
+          
+            <li>
+          
+            <a href="/index.html">主页</a>
+            
+          </li>
+        
+          
+            <li>
+          
+            <a href="/archives">文章</a>
+            
+          </li>
+        
+          
+            <li>
+          
+            <a href="/tags">标签</a>
+            
+          </li>
+        
+          
+            <li>
+          
+            <a href="/categories">分类</a>
+            
+          </li>
+        
+          
+            <li>
+          
+            <a href="https://github.com/wangliang19960516">Github</a>
+            
+          </li>
+        
+        </ul>
+      </div>
+      <div id="show-menu">
+        <button>Menu</button>
+      </div>
+    </div>
+  </div>
+
+  <div id="content-outer">
+    <div id="content-inner">
+      
+      
+  
+
+  <article id="post">
+    <h1>空标题</h1>
+    <p class="page-title-sub">
+      <span id="post-title-date">撰写于 2019-03-09</span>
+      
+        <span id="post-title-updated">修改于 2019-03-09</span>
+      
+      
+      
+    </p>
+    
+    <p>##Git����ʹ��</p>
+<p>###Git�ر��� </p>
+<pre><code>+ git init
+   �û���ʼ��git�ֿ⣨������Ӱ���ļ� .git��
+
++ �û���Ϣ���ã�name&amp;email���ǵ��ڡ� �����ӣ�
+  -  �����û��� ��git config --global uer.name &quot;wangliang19960516&quot; 
+  -  �����û��� ��git config --global uer.email &quot;wangliang19960516@163.com&quot;
+
++ ����洢�� .git �ֿ���
+  + git add ./ aim.txt  
+    ���ƶ��ļ����˴���aim.txtΪ������һ���ļ���untracked��δ��׷�٣�״̬תΪ�� staged״̬
+    ֱ�׵Ľ������ǰ��ļ��ύ���ݻ��������ʱ��û���������ϵĴ����ύ
+    ��ʽΪ��git add .�ύ���иĶ���git add aim.txt �ύָ���ļ��ĸĶ�
+
+  + git commit
+    �ⲽ���������Ĵ����ύ���ֿ�
+    ��ʽΪ��git commit 
+    ���߼Ӳ��� git commit -m ����ε��ύ˵����Ϣ��
+    �ǵ����������ӱ�ע��Ϣ
+  + git status
+    �鿴�ֿ��ļ�״̬
+    �����ʽ��ʹ�ò��� -s��git status -s
+
+  + git reset --hard
+    �汾���˲���
+    ��������ѵ�ǰ�İ汾���˵���һ���汾��
+    ��һ�ַ�ʽ��git reset --hard HEAD^��ô���Ҫ���˵����ϸ��汾ֻ��� HEAD^ �ĳ� HEAD^^ 
+    �ڶ��ַ�ʽ�������Ҫ���˵�ǰX���汾�Ļ���ʹ�����������git reset --hard HEAD~X 
+ + git log
+    �鿴�ύ��ʷ��¼���汾��ʷ��Ϣ���ύ��&amp;ʱ��
+ + git diff
+   ������ѡ�������������ʾ����Ŀ¼���ݴ���֮��Ĳ�ͬ
+     �������㿴������������ڰ������ļ��� add��������ݴ�����������Щ���ݡ�
+     ����git diff develop���鿴��ǰ�汾�� develop ��֧�Ĳ���
+
+ + git diff �Ccached
+    �鿴�Ѿ��ݴ��������ļ����ϴ��ύ�İ汾֮��Ĳ���
+    git diff �Ccached filename �鿴�Ѿ��ݴ�������ĳ���ļ����ϴ��ύ�İ汾֮��Ĳ���
+
+ + git diff --staged
+    ʹ�� git diff --staged ������ʾ�ݴ�������һ���ύ֮��Ĳ�ͬ
+    ���仰˵������ָ��������㿴����������������� git commit���㽫���ύʲô��
+
+ + git branch
+    �鿴����Щ��֧�������ܿ�����ǰ�����ĸ���֧�ϡ�PS����ʼ���ֿ��Ĭ���� master �������֧��һ������²��������ڸ�����֧�������½���֧����ʹ��git branch &lt;newBranch&gt;��ʽ���� git branch dev�½���֧ dev�������ݺͺ�����֧һģһ����
+
+ + git branch -a
+    �鿴���غ�Զ�����з�֧
+
+ + git branch -r
+    �鿴Զ�����з�֧
+
+ + git branch -v
+    �鿴Զ�̷�֧��ϸ��Ϣ
+
+ + git checkout a
+    �л��� a ��֧��
+
+ + git checkout -b a
+    ��ʾ�½���֧ a ��ͬʱ�л�����֧ a��
+
+ + git merge
+    �ϲ���֧���룬����ϲ� dev �ִ��룬��Ҫ���л��� master ��֧����git merge dev���ɺϲ� dev ��֧����
+
+ + git merge -- about
+    �᳢�Իָ��������кϲ�ǰ��״̬�� 
+    ������������ǰ���ڹ���Ŀ¼����δ���ء�δ�ύ���޸�ʱ��������������
+    �������� Git �ֿ⴦�ڳ�ͻ��������м�״̬��������������վ���������� merge
+    ��Ҫִ��һ�� merge --abort ���ֶ�ȡ�������������д��룬��� Git �ֿ�ͻ�ص� merge ǰ��״̬��
+
+ + git branch -d
+    ɾ����֧�� ���������֧�½����ˣ�����a��֧�Ĵ����Ѿ�˳���ϲ��� master ��֧����
+    ��ʱ a ��֧û���ˣ���Ҫɾ����ִ�� git branch -d a �Ϳ��԰�a��֧ɾ���ˡ�
+
+ + git branch -D
+    ǿ��ɾ������Щʱ����ܻ�ɾ��ʧ��
+    ������� a ��֧�Ĵ��뻹û�кϲ��� master����ִ�� git branch -d a ��ɾ�����˵�
+    �������ܵ���ʾ�� a ��֧����δ�ϲ��Ĵ���
+    ����������Ҫɾ�����Ǿ�ִ�� git branch -D a �Ϳ���ǿ��ɾ�� a ��֧��
+
+ + git tag
+    �½���ǩ��
+    �����ڿͻ��˿�����ʱ�򾭳��а汾�ĸ������ v1.0��v1.1 ֮���
+    ��ͬ�İ汾�϶���Ӧ��ͬ�Ĵ��룬һ��Ҫ�����ǵĴ�����ϱ�ǩ������ĳ���ύ���Ϊĳ�� tags���� v1.0��
+    �������� v1.1 �汾����һ���� bug�������ֲ����� v1.0 �ǲ�������� bug
+    ���˱�ǩ�Ϳ���˳���л��� v1.0 �Ĵ��룬���´����������
+    ���������Ҫ�½�һ����ǩ�ܼ�
+    ���� git tag v1.0 �ʹ������ڵ�ǰ����״̬���½���һ�� v1.0 �ı�ǩ
+    ���� git tag ���Բ鿴��ʷ tag ��¼
+    ��Ҫ�л���ĳ�� tag��ִ�У�git checkout v1.0���Ϳ����л��� v1.0 �Ĵ���״̬��
+</code></pre><p>###Git����Զ�̿ⳣ��</p>
+
+  </article>
+  <div class="random-toc-area">
+  <button class="btn-hide-toc btn-hide-toc-show" style="display: none" onclick="TOCToggle()">显示目录</button>
+  <button class="btn-hide-toc btn-hide-toc-hide" onclick="TOCToggle()">隐藏目录</button>
+  <div class="random-toc">
+    <h2>目录</h2>
+    
+  </div>
+</div>
+
+  
+<nav id="pagination">
+  
+
+  
+
+  
+    <a href="/2019/03/08/我的第一篇文章/" class="next">下一篇 第一篇文章 &rarr;</a>
+  
+</nav>
+
+  <!-- JiaThis Button BEGIN -->
+
+<!-- JiaThis Button END -->
+
+
+      
+      
+    </div>
+  </div>
+
+  <div id="bottom-outer">
+    <div id="bottom-inner">
+      Site by  using
+      <a href="http://hexo.io">Hexo</a> & <a href="https://github.com/stiekel/hexo-theme-random">Random</a>
+      <br>
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+
+<div id="user-card">
+  <div class="center-field">
+    <img class="avatar" src="http://m.qpic.cn/psb?/V102QpNv3FCx09/Sprv95uyhT*mdo3kY*ATmS8qentTqrcRB3vR2PoOtpk!/b/dLsAAAAAAAAA&bo=awQ4BAAAAAADB3E!&rf=viewer_4">
+    <p id="description"></p>
+    <ul class="social-icon">
+  
+  
+    <li>
+      <a href="https://github.com/wangliang19960516">
+        
+          <i class="icon iconfont github">&#xe606;</i>
+        
+      </a>
+    </li>
+  
+    <li>
+      <a href="mailto:wangliang19960516@163.com">
+        
+          M
+        
+      </a>
+    </li>
+  
+</ul>
+  </div>
+</div>
+
+
+<div id="btn-view">Hide</div>
+
+<script>
+// is trigger analytics / tongji script
+var isIgnoreHost = false;
+
+if(window && window.location && window.location.host) {
+  isIgnoreHost = ["localhost","127.0.0.1"].some(function(address){
+    return 0 === window.location.host.indexOf(address);
+  });
+}
+
+var isTriggerAnalytics = !( true && isIgnoreHost );
+
+</script>
+
+
+
+
+  
+  
+    <script src="/js/jquery-2.2.3.min.js"></script>
+  
+    <script src="/js/vegas.min.js"></script>
+  
+    <script src="/js/random.js"></script>
+  
+    <script src="/js/highlight.pack.js"></script>
+  
+    <script src="/js/jquery.mousewheel.pack.js"></script>
+  
+    <script src="/js/jquery.fancybox.pack.js"></script>
+  
+    <script src="/js/jquery.fancybox-thumbs.js"></script>
+  
+    <script src="/js/plyr.js"></script>
+  
+
+<script>
+
+  // fancybox
+  var backgroundImages = [];
+  
+  $('#post').each(function(i){
+    $(this).find('img').each(function(){
+      if ($(this).parent().hasClass('fancybox') || $(this).parent().hasClass('fancybox-thumb')) return;
+      var alt = this.alt || this.title;
+      if (alt) $(this).after('<span class="caption">' + alt + '</span>');
+      $(this).wrap('<a href="' + this.src + '" title="' + alt + '" class="fancybox"></a>');
+    });
+    $(this).find('.fancybox').each(function(){
+      $(this).attr('rel', 'post' + i);
+    });
+  });
+  $(".fancybox").fancybox();
+
+var vegasConfig = {"preload­Image":true,"transition":["flash"],"timer":true,"delay":1500000,"shuffle":true,"count":12};
+var unsplashConfig = {"gravity":"center"};
+// is show background images
+var turnoffBackgroundImage = false;
+
+
+
+
+var backgroundColor = "34495E";
+
+$(".fancybox-thumb").fancybox({
+  prevEffect: 'none',
+  nextEffect: 'none',
+  helpers: {
+    title: {
+      type: 'outside'
+    },
+    thumbs: {
+      width: 50,
+      height: 50
+    }
+  }
+});
+
+// show video with plyr
+$(".video-container iframe").each(function(i){
+  var url = $(this).attr('src');
+  var id = url.split('/').pop();
+  var plyrContainer = document.createElement('div');
+  plyrContainer.className = 'plyr';
+  var plyrElement = document.createElement('div');
+  plyrElement.dataset.videoId = id;
+  switch(true) {
+    case url.search('youtube.com') >= 0:
+      plyrElement.dataset.type = 'youtube';
+      break;
+    case url.search('vimeo.com') >= 0:
+      plyrElement.dataset.type = 'vimeo';
+      break;
+    default:
+      return;
+  };
+  plyrContainer.appendChild(plyrElement);
+  $(this).parent().html(plyrContainer);
+});
+plyr.setup('.plyr', {iconUrl: '/css/sprite.svg'});
+</script>
+</body>
+</html>
+
