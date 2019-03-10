@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="utf-8">
+  
+  <title>git篇（二） | 王 亮</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+    <meta name="keywords" content="千里之行 始于足下">
+  
+  
+  
+  
+  <meta name="description" content="Git基本使用Git远程操作  git clone： 远程 clone 即复制/克隆一个完整的 repository (仓库，即项目代码)  到本地，克隆仓库时所使用的远程主机自动被 Git 命名为 origin，如果想用其他的主机名，需要用git  clone命令的-o选项指定。格式为：git clone -o jQuery https://github.com/jquery/jquery.gi">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Git篇（二）">
+<meta property="og:url" content="http://yoursite.com/2019/03/10/Git常用操作(二)/index.html">
+<meta property="og:site_name" content="王 亮">
+<meta property="og:description" content="Git基本使用Git远程操作  git clone： 远程 clone 即复制/克隆一个完整的 repository (仓库，即项目代码)  到本地，克隆仓库时所使用的远程主机自动被 Git 命名为 origin，如果想用其他的主机名，需要用git  clone命令的-o选项指定。格式为：git clone -o jQuery https://github.com/jquery/jquery.gi">
+<meta property="og:locale" content="default">
+<meta property="og:image" content="http://www.codeblocq.com/assets/projects/hexo-theme-clean-blog/assets/station.jpg">
+<meta property="og:updated_time" content="2019-03-10T03:57:09.139Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Git篇（二）">
+<meta name="twitter:description" content="Git基本使用Git远程操作  git clone： 远程 clone 即复制/克隆一个完整的 repository (仓库，即项目代码)  到本地，克隆仓库时所使用的远程主机自动被 Git 命名为 origin，如果想用其他的主机名，需要用git  clone命令的-o选项指定。格式为：git clone -o jQuery https://github.com/jquery/jquery.gi">
+<meta name="twitter:image" content="http://www.codeblocq.com/assets/projects/hexo-theme-clean-blog/assets/station.jpg">
+  
+    <link rel="alternate" href="/atom.xml" title="王 亮" type="application/atom+xml">
+  
+
+  
+
+  <link rel="icon" href="/css/images/mylogo.png">
+  <link rel="apple-touch-icon" href="/css/images/mylogo.png">
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans|Montserrat:700" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Roboto:400,300,300italic,400italic" rel="stylesheet" type="text/css">
+  <link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
+  <style type="text/css">
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/9749f0/00000000000000000001008f/27/l?subset_id=2&fvd=n5) format("woff2");font-weight:500;font-style:normal;}
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/90cf9f/000000000000000000010091/27/l?subset_id=2&fvd=n7) format("woff2");font-weight:500;font-style:normal;}
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/8a5494/000000000000000000013365/27/l?subset_id=2&fvd=n4) format("woff2");font-weight:lighter;font-style:normal;}
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/d337d8/000000000000000000010095/27/l?subset_id=2&fvd=i4) format("woff2");font-weight:400;font-style:italic;}</style>
+  <link rel="stylesheet" href="/css/style.css">
+
+  <script src="/js/jquery-3.1.1.min.js"></script>
+  <script src="/js/bootstrap.js"></script>
+
+  <!-- Bootstrap core CSS -->
+  <link rel="stylesheet" href="/css/bootstrap.css">
+
+  
+    <link rel="stylesheet" href="/css/dialog.css">
+  
+
+  
+
+  
+    <link rel="stylesheet" href="/css/header-post.css">
+  
+
+  
+  
+  
+
+</head>
+</html>
+
+
+  <body data-spy="scroll" data-target="#toc" data-offset="50">
+
+
+  
+  <div id="container">
+    <div id="wrap">
+      
+        <header>
+
+    <div id="allheader" class="navbar navbar-default navbar-static-top" role="navigation">
+        <div class="navbar-inner">
+          
+          <div class="container"> 
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+
+            
+              <a class="brand" style="
+                 margin-top: 0px;" href="#" data-toggle="modal" data-target="#myModal">
+                  <img width="148px" height="148px" alt="Hike News" src="/css/images/mylogo.png">
+              </a>
+            
+            
+            <div class="navbar-collapse collapse">
+              <ul class="hnav navbar-nav">
+                
+                  <li> <a class="main-nav-link" href="/">Home</a> </li>
+                
+                  <li> <a class="main-nav-link" href="/archives">Archives</a> </li>
+                
+                  <li> <a class="main-nav-link" href="/categories">Categories</a> </li>
+                
+                  <li> <a class="main-nav-link" href="/tags">Tags</a> </li>
+                
+                  <li> <a class="main-nav-link" href="/about">About</a> </li>
+                
+                  <li><div id="search-form-wrap">
+
+    <form class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder>
+        <button type="submit" class="search-form-submit"></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="Type something...">
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: 'Posts',
+            PAGES: 'Pages',
+            CATEGORIES: 'Categories',
+            TAGS: 'Tags',
+            UNTITLED: '(Untitled)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+<script src="/js/insight.js"></script>
+
+</div></li>
+            </ul></div>
+          </div>
+                
+      </div>
+    </div>
+
+</header>
+
+
+
+      
+            
+      <div id="content" class="outer">
+        
+          <section id="main" style="float:none;"><article id="post-Git常用操作(二)" style="width: 75%; float:left;" class="article article-type-post" itemscope itemprop="blogPost">
+  <div id="articleInner" class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" itemprop="name">
+      Git篇（二）
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="/2019/03/10/Git常用操作(二)/" class="article-date">
+	  <time datetime="2019-03-10T03:57:07.000Z" itemprop="datePublished">2019-03-10</time>
+	</a>
+
+      
+      
+	<a class="article-views">
+	<span id="busuanzi_container_page_pv">
+		PV:<span id="busuanzi_value_page_pv"></span>
+	</span>
+	</a>
+
+      
+
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="Git基本使用"><a href="#Git基本使用" class="headerlink" title="Git基本使用"></a>Git基本使用</h2><h3 id="Git远程操作"><a href="#Git远程操作" class="headerlink" title="Git远程操作"></a>Git远程操作</h3><p>  git clone： 远程 clone 即复制/克隆一个完整的 repository (仓库，即项目代码)<br>  到本地，克隆仓库时所使用的远程主机自动被 Git 命名为 origin，如果想用其他的主机名，需要用git<br>  clone命令的-o选项指定。格式为：git clone -o jQuery <a href="https://github.com/jquery/jquery.git" target="_blank" rel="noopener">https://github.com/jquery/jquery.git</a><br>  然后git remote命令查看，可以看到名字为远程主机名 jQuery。<br>  这里要特别说下，这里克隆可以有两种方式，一种 https 方式，一种 ssh 方式。</p>
+<p>①如果是 https 方式，复制仓库 https 地址进行 clone 操作，如：git clone <a href="https://github.com/XXX/XXX.git" target="_blank" rel="noopener">https://github.com/XXX/XXX.git</a></p>
+<p>这样克隆下来的项目仓库，注意观察.git文件夹下的config中的文件 url：</p>
+<p>[remote “origin”]<br>    url = <a href="https://github.com/XXX/XXX.git" target="_blank" rel="noopener">https://github.com/XXX/XXX.git</a><br>    fetch = +refs/heads/<em>:refs/remotes/origin/</em><br>[branch “master”]<br>    remote = origin<br>    merge = refs/heads/master</p>
+<p>②如果是 ssh 方式，复制仓库的 ssh 地址进行 clone 操作，如：git clone <a href="mailto:git@github.com" target="_blank" rel="noopener">git@github.com</a>:XXX/XXX.git</p>
+<p>这样克隆下来的项目仓库，注意观察.git文件夹下的config中的文件 url：</p>
+<p>[remote “origin”]<br>    url = <a href="mailto:git@github.com" target="_blank" rel="noopener">git@github.com</a>:XXX/XXX.git<br>    fetch = +refs/heads/<em>:refs/remotes/origin/</em><br>[branch “master”]<br>    remote = origin<br>    merge = refs/heads/master</p>
+<p>注1： 可以看到，https 方式下 url 为 「https 地址」，ssh 方式下 url 为「ssh 地址」（我就这么任性表达了，反正意思明白就行），所以假设你采用的 https 方式 clone 下来的项目可以通过修改这个 url 为「ssh 地址」，这样本地仓库就相当于是使用了 「ssh 方式 clone 下来的」。</p>
+<p>注2：两者的区别有，若采用的 https 方式，则每次提交代码至 GitHub 时，都要求输入 GitHub 账号和密码才能提交，若 ssh 方式，则不需要每次的输入。但当然这前提是你已经添加 ssh 。</p>
+<p>关于 SSH 协议的历史，可以看看这篇文章：SSH 协议（Secure Shell 协议）。</p>
+<p>这里引用我看到的网上资料关于 https 和 SSH 的区别说下：</p>
+<p>前者可以随意克隆 github上的项目，而不管是谁的；而后者则是你必须是你要克隆的项目的拥有者或管理员，且需要先添加 SSH key ，否则无法克隆。<br>https url 在 push 的时候是需要验证用户名和密码的；而 SSH 在 push 的时候，是不需要输入用户名的，如果配置 SSH key 的时候设置了密码，则需要输入密码的，否则直接是不需要输入密码的。<br>关于如何添加 ssh 下面是步骤：</p>
+<p>Linux 与 Mac 都是默认安装了 SSH ，而 Windows 系统安装了 Git Bash（即安装了 Git 就有这个） 应该也是带了 SSH 的，在终端输入ssh命令可以查看是否安装了 ssh；</p>
+<p>紧接着输入 ssh-keygen -t rsa 或者ssh-keygen -t rsa -C “注释”格式 ，就是指定 rsa 算法生成密钥，接着连续三个回车键（不需要输入密码）然后就会生成两个文件 id_rsa 和 id_rsa.pub ，而 id_rsa 是密钥，id_rsa.pub 就是公钥。这两文件默认分别在如下目录里生成： Linux/Mac 系统 在 ~/.ssh 下，win系统在 /c/Documents and Settings/username/.ssh 下， 都是隐藏目录，大家应该能找到的；</p>
+<p>PS： 其实在连续安回车键中会提示输入一个密码以及确认密码，这个密码会在你提交项目时使用，如果为空的话（即直接按回车键，也即未设置密码）提交项目代码时则不用输入密码；</p>
+<p>接下来要做的是把 id_rsa.pub 的内容添加到 GitHub 上（PS：如何添加自行网上搜下，就不多说了），这样你本地的 id_rsa 密钥跟 GitHub 上的 id_rsa.pub 公钥进行配对，授权成功，这样就可以不用像 https 方式每次输入账号和密码进行验证身份才能提交了。（你就理解为，SSH 就好比进行了身份验证的这种理解。）</p>
+<p>SSH key 添加成功之后，输入 ssh -T <a href="mailto:git@github.com" target="_blank" rel="noopener">git@github.com</a> 进行测试，如果出现以下提示，再输入 yes 便添加成功了。</p>
+<p>补充：对于命令 ssh-keygen添加不同参数的含义—— ssh-keygen参数说明。</p>
+<h3 id="实战学习"><a href="#实战学习" class="headerlink" title="实战学习"></a>实战学习</h3><ol>
+<li>代码提交到 GitHub 上<br>两种克隆方式<br>采用 HTTPS 方式克隆 GitHub 上仓库(项目)：<a href="https://github.com/XXX/DemoSpase.git" target="_blank" rel="noopener">https://github.com/XXX/DemoSpase.git</a><br>采用 SSH 方式克隆：git clone <a href="mailto:git@github.com" target="_blank" rel="noopener">git@github.com</a>:wangliang19960516/DemoSpase.git<br>如果想要在克隆至本地时指定别的目录名称，可以在后面加个参数，如：git clone <a href="https://github.com/XXX/DemoSpase.git" target="_blank" rel="noopener">https://github.com/XXX/DemoSpase.git</a> git-practice-another，手动指定本地仓库的根目录名称为 git-practice-another。</li>
+</ol>
+<p>· GitHub 中的 SSH 和 HTTPS 提交区别：</p>
+<p>git使用ssh密钥和https两种认证方式汇总<br>从 GitHub 上 Clone 一个项目到本地的时候，有 use https 和 use ssh 两种方式，这两种主要是在 push 项到 GitHub 上时有所不同。完成一个 push 操作，需要对其内容进行安全管理，这里提供了 ssh 和 https 两种方式。而在 Clone 项目到本地时，做出选择后，就已经决定了 push 的方式。</p>
+<p>SSH 使用了 RSA，即非对称加密的方式，存在一个公钥和私钥。可以生成一个本地的一组秘钥，然后将公钥复制到 GitHub 的 settings/profile 下。使用 https 方式，每次需要验证用户身份信息。</p>
+<ol start="2">
+<li>采用https方式克隆<br>在使用 git status 命令查看仓库状态若是看到： your branch is ahead of ‘origin/master’ by 2 commits. ，解释下：</li>
+</ol>
+<p>Git 提示你的当前 branch 已经领先于（ “ahead of” ）‘origin/master’ 两个提交了<br>origin/master 的中的 origin 是远端仓库的名称，是你在用 Clone 指令初始化本地仓库时 Git 自动帮你起的默认名称；master 是 origin 上的分支名称。<br>可以暂时把 origin/master 简单理解为「中央仓库」，也就是说，这句话是告诉你，你的本地仓库已经领先中央仓库两个提交了。然后可以使用 git push 提交发布至中央服务器（这里即指 GitHub）。</p>
+<p>因为采用的是 https 方式克隆，所以在这个过程 GitHub 会向你索要账户和密码。填入正确的账户和密码，push 操作就完成了。这时你再去你的 GitHub 仓库页面可以看到提交记录。说明你已经成功把本地仓库的提交推送到了服务器了。</p>
+<p>PS：如果觉得一遍遍地输入密码很烦，可以按照 这个页面 提供的方案来把密码保存起来。另外还有一个更简单但安全性低一些的方案。执行这行代码：git config credential.helper store，在这之后你只需要再输入一次密码， Git 就会把你的密码保存下来，这之后就再也不用输入了。说它「安全性低」，是因为这条指令会让 Git 把你的密码以明文形式保存在你的电脑上。具体这两种保存密码的方案选择哪个，看你自己了。</p>
+<p>· 总结下：</p>
+<p>从 GitHub 把中央仓库 Clone 到本地把写完的代码提交。即先使用命令：git clone，再用 git add 文件名 把文件添加到暂存区，再用 git commit 提交；<br>在这个过程中，可以使用 git status 来随时查看工作目录的状态。每个文件有 “changed / unstaged”（已修改）, “staged”（已修改并暂存）, “commited”（已提交） 三种状态，以及一种特殊状态 “untracked”（未跟踪）；<br>提交一次或多次之后，把本地提交 push 到中央仓库（命令：git push）。</p>
+<ol start="3">
+<li>采用ssh方式克隆<br>在拥有了一个 GitHub 账号之后，就可以自由的 Clone 或者下载其他项目，也可以创建自己的项目，但是你没法提交代码。仔细想想也知道，肯定不可能随意就能提交代码的，如果随意可以提交代码，那么 GitHub 上的项目岂不乱了套了，所以提交代码之前一定是需要某种授权的，而 GitHub 上一般都是基于 SSH 授权的。那么什么是 SSH 呢？ 简单点说，SSH 是一种网络协议，用于计算机之间的加密登录。目前是每一台 Linux 电脑的标准配置。而大多数 Git 服务器都会选择使用 SSH 公钥来进行授权，所以想要在 GitHub 提交代码的第一步就是要先添加 SSH key 配置。</li>
+</ol>
+<p>· 添加 SSH 步骤：</p>
+<p>Git Bash下输入 ssh 查看电脑是否安装了 ssh；<br>紧接着输入 ssh-keygen -t rsa，什么意思呢？就是指定 rsa 算法生成密钥，接着连续三个回<br>车键（不需要输入密码） ，然后就会生成两个文件 id_rsa 和 id_rsa.pub ，而 id_rsa 是密钥，id_rsa.pub 就是公钥。这两文件默认分别在如下目录里生成： Linux/Mac 系统 在 ~/.ssh 下，Windows 系统在 /c/Documents and Settings/username/.ssh 下， 都是隐藏文件。<br>接下来要做的是把 id_rsa.pub 的内容添加到 GitHub 上，这样你本地的 id_rsa 密钥跟 GitHub 上的 id_rsa.pub 公钥进行配对，授权成功才可以提交代码。<br>SSH key 添加成功之后，输入 ssh -T <a href="mailto:git@github.com" target="_blank" rel="noopener">git@github.com</a> 进行测试。<br>最后就是 push、pull 的操作了。添加 SSH key 成功之后，我们就有权限向 GitHub 上我们自己的项目提交代码了。执行：git push origin master 进行代码提交。</p>
+<h3 id="实践：-假设我们本地有个-test2-的项目，我们需要的是在-GitHub-上建一个-test-的项目，然后把本地-test2-上的所有代码-commit-记录提交到-GitHub-上的-test-项目。"><a href="#实践：-假设我们本地有个-test2-的项目，我们需要的是在-GitHub-上建一个-test-的项目，然后把本地-test2-上的所有代码-commit-记录提交到-GitHub-上的-test-项目。" class="headerlink" title="实践： 假设我们本地有个 test2 的项目，我们需要的是在 GitHub 上建一个 test 的项目，然后把本地 test2 上的所有代码 commit 记录提交到 GitHub 上的 test 项目。"></a>实践： 假设我们本地有个 test2 的项目，我们需要的是在 GitHub 上建一个 test 的项目，然后把本地 test2 上的所有代码 commit 记录提交到 GitHub 上的 test 项目。</h3><p>第一步就是在 GitHub 上建一个 test 仓库，具体怎么操作我就不多说了吧；</p>
+<p>第二步切换到 test2 目录，打开 Git Bash，把本地 test2 项目与 GitHub 上的 test 项目进行关联：git remote add origin <a href="mailto:git@github.com" target="_blank" rel="noopener">git@github.com</a>:XXX/XXX.git</p>
+<p>什么意思呢？就是添加一个远程仓库，地址是 <a href="mailto:git@github.com" target="_blank" rel="noopener">git@github.com</a>:strivebo/test.git，而 origin 是给这个项目的远程仓库起的名字，是的，名字你可以随便取，只不过大家公认的只有一个远程仓库时名字就是 origin ，为什么要给远程仓库取名字？因为我们可能一个项目有多个远程仓库？比如 GitHub 一个，比如公司一个，这样的话提交到不同的远程仓库就需要指定不同的仓库名字了。</p>
+<p>PS：查看我们当前项目有哪些远程仓库可以执行如下命令： git remote -v，接下来，我们本地的仓库就可以向远程仓库进行代码提交了：git push origin master，就是默认向 GitHub 上的 test 仓库提交了代码，而这个代码是在 master 分支，当然你可以提交到指定的分支。</p>
+<p>再次强调： Git 使用 https 协议，每次 pull，push 都要输入密码，相当的烦。使用 Git 协议，然后使用 ssh 密钥，这样可以省去每次都输密码。</p>
+<h2 id><a href="#" class="headerlink" title></a><p><img src="http://www.codeblocq.com/assets/projects/hexo-theme-clean-blog/assets/station.jpg" alt title></p><p></p></h2><p>说明：Git篇(二) 内容取自该博主，作为个人学习内容。<br>作者：Jaybo_<br>原文：<a href="https://blog.csdn.net/u012195214/article/details/79189057" target="_blank" rel="noopener">https://blog.csdn.net/u012195214/article/details/79189057</a> </p>
+
+      
+    </div>
+    <footer class="article-footer">
+      
+      
+      
+      
+        
+      
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2019/03/10/Git常用操作(一)/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">Git篇（一）</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+<!-- Table of Contents -->
+
+  <aside id="toc-sidebar">
+    <div id="toc" class="toc-article">
+    <strong class="toc-title">Contents</strong>
+    
+        <ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Git基本使用"><span class="nav-number">1.</span> <span class="nav-text">Git基本使用</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Git远程操作"><span class="nav-number">1.1.</span> <span class="nav-text">Git远程操作</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#实战学习"><span class="nav-number">1.2.</span> <span class="nav-text">实战学习</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#实践：-假设我们本地有个-test2-的项目，我们需要的是在-GitHub-上建一个-test-的项目，然后把本地-test2-上的所有代码-commit-记录提交到-GitHub-上的-test-项目。"><span class="nav-number">1.3.</span> <span class="nav-text">实践： 假设我们本地有个 test2 的项目，我们需要的是在 GitHub 上建一个 test 的项目，然后把本地 test2 上的所有代码 commit 记录提交到 GitHub 上的 test 项目。</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#"><span class="nav-number">2.</span> <span class="nav-text"></span></a></li></ol>
+    
+    </div>
+  </aside>
+
+</section>
+        
+      </div>
+      
+      <footer id="footer">
+  
+
+  <div class="container">
+      	<div class="row">
+	      <p> Powered by <a href="http://hexo.io/" target="_blank">Hexo</a> and <a href="https://github.com/iTimeTraveler/hexo-theme-hiker" target="_blank">Hexo-theme-hiker</a> </p>
+	      <p id="copyRightEn">Copyright &copy; 2018 - 2019 王 亮 All Rights Reserved.</p>
+	      
+	      
+    		<p class="busuanzi_uv">
+				UV : <span id="busuanzi_value_site_uv"></span> |  
+				PV : <span id="busuanzi_value_site_pv"></span>
+		    </p>
+  		   
+		</div>
+
+		
+  </div>
+</footer>
+
+
+<!-- min height -->
+
+<script>
+    var wrapdiv = document.getElementById("wrap");
+    var contentdiv = document.getElementById("content");
+    var allheader = document.getElementById("allheader");
+
+    wrapdiv.style.minHeight = document.body.offsetHeight + "px";
+    if (allheader != null) {
+      contentdiv.style.minHeight = document.body.offsetHeight - allheader.offsetHeight - document.getElementById("footer").offsetHeight + "px";
+    } else {
+      contentdiv.style.minHeight = document.body.offsetHeight - document.getElementById("footer").offsetHeight + "px";
+    }
+</script>
+    </div>
+    <!-- <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+    <a href="/categories" class="mobile-nav-link">Categories</a>
+  
+    <a href="/tags" class="mobile-nav-link">Tags</a>
+  
+    <a href="/about" class="mobile-nav-link">About</a>
+  
+</nav> -->
+    
+
+<!-- mathjax config similar to math.stackexchange -->
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      processEscapes: true
+    }
+  });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+    });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/scripts.js"></script>
+
+
+
+
+  <script src="/js/dialog.js"></script>
+
+
+
+
+
+
+
+
+
+	<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js">
+	</script>
+
+
+
+
+
+
+  </div>
+
+  <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2 class="modal-title" id="myModalLabel">设置</h2>
+      </div>
+      <hr style="margin-top:0px; margin-bottom:0px; width:80%; border-top: 3px solid #000;">
+      <hr style="margin-top:2px; margin-bottom:0px; width:80%; border-top: 1px solid #000;">
+
+
+      <div class="modal-body">
+          <div style="margin:6px;">
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne" onclick="javascript:setFontSize();" aria-expanded="true" aria-controls="collapseOne">
+              正文字号大小
+            </a>
+          </div>
+          <div id="collapseOne" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
+          <div class="panel-body">
+            您已调整页面字体大小
+          </div>
+        </div>
+      
+
+
+          <div style="margin:6px;">
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" onclick="javascript:setBackground();" aria-expanded="true" aria-controls="collapseTwo">
+              夜间护眼模式
+            </a>
+        </div>
+          <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+          <div class="panel-body">
+            夜间模式已经开启，再次单击按钮即可关闭 
+          </div>
+        </div>
+
+        <div>
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="true" aria-controls="collapseThree">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;关 于&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
+        </div>
+         <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
+          <div class="panel-body">
+            王 亮
+          </div>
+          <div class="panel-body">
+            Copyright © 2019 王 亮 All Rights Reserved.
+          </div>
+        </div>
+      </div>
+
+
+      <hr style="margin-top:0px; margin-bottom:0px; width:80%; border-top: 1px solid #000;">
+      <hr style="margin-top:2px; margin-bottom:0px; width:80%; border-top: 3px solid #000;">
+      <div class="modal-footer">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+      </div>
+    </div>
+  </div>
+</div>
+  
+  <a id="rocket" href="#top" class=""></a>
+  <script type="text/javascript" src="/js/totop.js?v=1.0.0" async=""></script>
+  
+    <a id="menu-switch"><i class="fa fa-bars fa-lg"></i></a>
+  
+</body>
+</html>
